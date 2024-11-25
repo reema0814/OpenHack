@@ -15,11 +15,11 @@ Here is a description of the data
 
 1. In your lab-VM, search for and select **SQL Server Management Studio 20**.
 
-   ![](images/SSMS.png)
+   ![](images/SMSS.png)
 
 1. Wait for the SSMS to succefully open.
 
-   ![](images/SSMS-load.png)
+   ![](images/SMSS-load.png)
 
 1. Once the SSMS opens, on the **Connect to Server** tab, specify the following details and click on **Connect (6)**.
 
