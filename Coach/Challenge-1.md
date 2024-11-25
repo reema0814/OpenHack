@@ -11,9 +11,15 @@ Here is a description of the data
 
 1. Navigate to the Azure portal, open the pre-deployed SQL Server in the **openhack** RG. Copy and paste the Server Name in a notepad, you will need this to connect to the SQL Server Management Studio in the next steps.
 
+   ![](images/azure-sql-server-name.png)
+
 1. In your lab-VM, search for and select **SQL Server Management Studio 20**.
 
+   ![](images/SSMS.png)
+
 1. Wait for the SSMS to succefully open.
+
+   ![](images/SSMS-load.png)
 
 1. Once the SSMS opens, on the **Connect to Server** tab, specify the following details and click on **Connect (6)**.
 
@@ -22,20 +28,38 @@ Here is a description of the data
    - Authentication: **SQL Server Authentication (3)**
    - Login: **sqladmin (4)**
    - Password: **X5FsphLufmY6xHFHaGUR (5)**
+  
+   ![](images/connect-sql-server-settings.png)
 
 1. Atfer connecting to the SQL Server successfully, right click on **Databases (1)** and select **Import data-tier Application (2)**.
 
+   ![](images/import-data-tier-app.png)
+
 1. On the **Introduction** tab, read through the steps and click on **Next**.
+
+   ![](images/import-app-intro.png)
 
 1. On the **Import settings** tab, click on **Browse** and search for and select the **AzureAIHack.bacpac** file and click on **Next**.
 
+   ![](images/import-app-browse.png)
+
 1. On the **Database Settings**, leave the settings as default (make sure you're connected to your SQL Server) and click on **Next**.
+
+   ![](images/import-app-db-settings.png)
 
 1. On the **Summary** tab, review the settings and click on **Finish**.
 
+   ![](images/import-app-summary.png)
+
 1. Watch the **Progress** and then click on **Close** on the Results tab when the operation completes.
 
+   ![](images/import-app-progress.png)
+
+   ![](images/import-app-results.png)
+
 1. Once the operation completes, in the SSMS, expand **Databases > AzureAIHack > Views**, right click on **dbo.MainOrderSample**, navigate to **Script View as > SELECT To > New Query Editor Window**.
+
+   ![](images/ssms-new-query-window.png)
 
 1. On the **New Query Editor Window**, copy the SQL from the **MainOrders** view to look at all 24,815 rows.
 
@@ -64,5 +88,5 @@ Here is a description of the data
 
 1. This query will provide the following result and shows that the top 2 Categories that have issues are **Accessoires** and **T-Shirtshort** .
 
-    ![categoryissues](images/categoryissues.png)
+   ![](images/top-2-results.png)
     
