@@ -4,54 +4,80 @@
 
 ### Create an Azure Machine Learning workspace
 
-1. Sign into the Azure portal using your Microsoft credentials.
-1. Select + Create a resource, search for Machine Learning, and create a new Azure Machine Learning resource with an Azure Machine Learning plan. Use the following settings:
+1. Navigate to the Azure portal, search for and select **Azure Machine Learning**.
+
+   ![](images/aml-search.png)
+   
+1. Select **+ Create > New Workspace** and specify the following settings and click on **Next**: 
+   
     * **Subscription**: Your Azure subscription.
-    * **Resource group**: Create or select a resource group.
+    * **Resource group**: **openhack**
     * **Workspace name**: Enter a unique name for your workspace.
-    * **Region**: Select the closest geographical region.
+    * **Region**: **Use the RG region**
     * **Storage account**: Note the default new storage account that will be created for your workspace.
     * **Key vault**: Note the default new key vault that will be created for your workspace.
     * **Application insights**: Note the default new application insights resource that will be created for your workspace.
     * **Container registry**: None (one will be created automatically the first time you deploy a model to a container)
-1. Select Review + create, then select Create. Wait for your workspace to be created (it can take a few minutes), and then go to the deployed resource.
+  
+   ![](images/aml-basics-tab.png)
+
+1. On the **Networking** tab, select **Public** and click on **Review + create** and then **Create**.
+
+   ![](images/aml-networking-tab.png)
+
+1. Wait for your workspace to be created (it can take a few minutes), and then go to the deployed resource.
+
+   ![](images/aml-go-to-ws.png) 
+   
 1. Select Launch studio (or open a new browser tab and navigate to https://ml.azure.com, and sign into Azure Machine Learning studio using your Microsoft account).
 
+   ![](images/aml-launch-studio.png)
+
 ### Create compute
+
 1. In Azure Machine Learning studio, select the ≡ icon (a menu icon that looks like a stack of three lines) at the top left to view the various pages in the interface (you may need to maximize the size of your screen). You can use these pages in the left hand pane to manage the resources in your workspace. Select the Compute page (under Manage).
 
-1. On the Compute page, select the Compute clusters tab, and add a new compute cluster with the following settings. You’ll use this to train a machine learning model:
+   ![](images/new-compute.png)
 
-    * **Location**: Select the same as your workspace. If that location is not listed, choose the one closest to you.
-    * **Virtual machine tier**: Dedicated
+1. On the Compute page, select the Compute clusters tab, and add a new compute cluster with the following settings. You’ll use this to train a machine learning model: 
+
+    * **Compute name**: Unique name
     * **Virtual machine type**: CPU
     * **Virtual machine size**:
         * Choose Select from all options
         * Search for and select **Standard_DS11_v2**
     * Select **Next**
-    * **Compute name**: enter a unique name.
-    * **Minimum number of nodes**: 0
-    * **Maximum number of nodes**: 2
     * **Idle seconds before scale down**: 120
     * **Enable SSH access**: Clear
     * Select **Create**
+  
+   ![](images/new-compute-basics.png) 
+
+   ![](images/new-compute-idle-time.png)
+
+   ![](images/new-compute-create.png) 
 
 ### Create a dataset
+
 1. In Azure Machine Learning studio, expand the left pane by selecting the menu icon at the top left of the screen. Select the Data page (under Assets). The Data page contains specific data files or tables that you plan to work with in Azure ML. You can create datasets from this page as well.
 
-1. On the Data page, under the Data assets tab, select + Create. Then configure a data asset with the following settings:
+   ![](images/new-data-asset.png) 
+
+1. On the Data page, under the Data assets tab, select + Create. Then configure a data asset with the following settings and click on **Next**:
 
     * **Name:** Provide a unique name
     * **Description:** Store the SQL Data
     * **Type:** Tabular
+  
+   ![](images/new-data-asset-name.png) 
     
-1. Click **Next**
-1. Click on the **From SQL databases** option and click **Next**
+1. Click on the **From SQL databases** option and click on **Next**.
+
+   ![](images/new-data-asset-data-source.png) 
+   
 1. Click on the **Create new datastore** link
 
-    ![newdatastore 1](images/newdatastore1.png)
-
-
+   ![](images/create-new-datastore.png) 
 
     * **Datastore name**: inventoryissues
     * **Datastore type**: Azure SQL Database
@@ -60,18 +86,17 @@
     * **Authentication type**: SQL Authentication
     * **User ID**: sqladmin
     * **Password**: X5FsphLufmY6xHFHaGUR
+  
+   ![](images/create-new-datastore-01.png)
 
-
+   ![](images/create-new-datastore-02.png) 
 
 1. Click **Create** and use **inventoryissues** as the name.
     
-    ![newdatastore](images/newdatastore.png)
-    
-1. Select the newly created Datastore
+1. Select the newly created Datastore and click on **Next**.
 
-    ![selectdatastore](images/selectdatastore.png)
+    ![](images/select-new-datastore.png)
 
-1. Click on **Next**
 1. Can use this as a sample query or come up with their own. This is based on the provided View in SQL Server
 
     ```
@@ -83,19 +108,26 @@
                              dbo.Supplier ON dbo.Orders.SupplierNumber = dbo.Supplier.SupplierNo
     ```
 
+    ![](images/run-query.png) 
+
 1. Click **Run query**
 1. Click on **Next**
 
     ![runquery](images/runquery.png)
 
-1. In the Schema section change the following fields detected as **Decimal** to **Integer**
+1. In the Schema section change the following fields detected as **Decimal** to **Integer**.
+   
     * **F_IsDefect**
     * **F_IsReturned**
     * **F_VolumeDiscount**
+  
+   ![runquery](images/data-asset-schema.png)
 
     
 1. Click on **Next**
 1. Click on **Create**
+
+   ![runquery](images/create-data-asset.png)
 
 ### Create a pipeline in Designer and load data to canvas
 
@@ -105,15 +137,17 @@ To get started with Azure Machine Learning designer, first you must create a pip
 
 1. Make sure the **Classic prebuilt** tab is selected then click the **Create a new pipeline using classic prebuilt components**.
 
-    ![classic](images/classic.png)
+    ![](images/new-classic-pipeline.png)
 
 1. Change the draft name from Pipeline-Created-on-date to **WoodGrove Retail Training**.
 
-1. Then in the project, next to the pipeline name on the left, select the arrows icon to expand the panel if it is not already expanded. The panel should open by default to the Asset library pane, indicated by the books icon at the top of the panel. Note that there is a search bar to locate assets. Notice two buttons, Data and Component.
+1. Then in the project, next to the pipeline name on the left, select the arrows icon to expand the panel if it is not already expanded. The panel should open by default to the Asset library pane, indicated by the books icon at the top of the panel. Note that there is a search bar to locate assets. Notice two buttons, Data and Component. 
 
     ![datacomponent](images/datacomponent.png)
     
 1. Select Data. Search for and place the **inventoryissues** dataset onto the canvas.
+
+   ![](images/classic-pipeline-dataset.png)
 
 1. Right-click (Ctrl+click on a Mac) the named dataset on the canvas, and select Preview data.
 
@@ -131,11 +165,15 @@ To get started with Azure Machine Learning designer, first you must create a pip
     
 1. Find the **Select Columns in Dataset** module and place it on the canvas below the inventoryissues dataset. Then connect the output from the bottom of the inventoryissues dataset to the input at the top of the Select Columns in Dataset module.
 
-1. Double click on the Select Columns in Dataset module to access a settings pane on the right. Select Edit column. Then in the Select columns window, select **By name** and **Add all** the columns. 
+   ![](images/classic-pipeline-select-columns.png) 
+
+1. Double click on the Select Columns in Dataset module to access a settings pane on the right. Select Edit column. Then in the Select columns window, select **By name** and **Add all** the columns.
+
+   ![](images/classic-pipeline-select-columns-edit.png)
 
 1. Find the **Normalize Data** module and place it on the canvas below the Select Columns in Dataset module. Then connect the output from the bottom of the Select Columns in Dataset module to the input at the top of the Normalize Data module, like this:
 
-    ![normalize](images/normalize.png)
+    ![](images/normalize.png) 
 
 1. Double-click the Normalize Data module to view its settings, noting that it requires you to specify the transformation method and the columns to be transformed.
 
@@ -146,40 +184,63 @@ To get started with Azure Machine Learning designer, first you must create a pip
     ```
     
     ![selectcolumns](images/selectcolumns.png)
+
+   ![](images/classic-pipeline-normalize-columns.png)
+
+   ![](images/classic-pipeline-normalize-columns-edit.png)
     
 1. Click Save and close the selection box.
 
 The data transformation is normalizing the numeric columns to put them on the same scale, which should help prevent columns with large values from dominating model training. 
 
 ### Run the pipeline
+
 To apply your data transformations, you need to run the pipeline as an experiment.
 
-1. Select Configure & Submit at the top of the page to open the Set up pipeline job dialogue.
+1. Select Configure & Submit at the top of the page to open the Set up pipeline job dialogue. 
+
+   ![](images/classic-pipeline-configure-submit.png)
 
 1. On the Basics page select Create new and set the name of the experiment to **woodgrove-training** then select Next .
 
+   ![](images/classic-pipeline-name.png)
+
 1. On the Inputs & outputs page select Next without making any changes.
+
+   ![](images/classic-pipeline-in-out.png)
 
 1. On the Runtime settings page an error appears as you don´t have a default compute to run the pipeline. In the Select compute type drop-down select Compute cluster and in the Select Azure ML compute cluster drop-down select your recently created compute cluster. Leave the default value in the **Select datastore** of **workplaceblobstore**
 
     ![blobstore](images/blobstore.png)
 
+   ![](images/classic-pipeline-compute.png)
+
 1. Select **Review + Submit** to review the pipeline job and then select **Submit** to run the training pipeline.
+
+   ![](images/classic-pipeline-review-submit.png)
 
 1. Wait a few minutes for the run to finish. You can check the status of the job by selecting Jobs under the Assets. From there, select the woodgrove-training experiment and then the WoodGrove Retail Training job.
 
+   ![](images/run-pipeline-training-job.png)
+
 ### View the transformed data
-When the run has completed, the dataset is now prepared for model training.
+
+When the run has completed, the dataset is now prepared for model training. 
 
 1. Right-click (Ctrl+click on a Mac) the Normalize Data module on the canvas, and select Preview data. Select Transformed dataset.
 
+   ![](images/pipeline-job-normalize-preview.png)
+
 1. View the data, noting that the numeric columns you selected have been normalized to a common scale.
+
+   ![](images/pipeline-job-normalize-trans-data.png)
 
 1. Close the normalized data result visualization. Return to the previous tab.
 
 After you’ve used data transformations to prepare the data, you can use it to train a machine learning model.
 
 ### Add training modules
+
 It’s common practice to train the model using a subset of the data, while holding back some data with which to test the trained model. This enables you to compare the labels that the model predicts with the actual known labels in the original dataset.
 
 1. Return to the Designer page and select the **Woodgrove Retail Training** pipeline. Below is a preview of the updates to make after the **Normalize Data** component
@@ -188,18 +249,23 @@ It’s common practice to train the model using a subset of the data, while hold
 
 1. In the **Asset library** pane on the left, in **Component**, search for and place a **Split Data** module onto the canvas under the **Normalize Data module**. Then connect the **Transformed Dataset (left)** output of the **Normalize Data module** to the input of the **Split Data module**.
 
-> Tip Use the search bar to quickly locate modules.
+   > Tip Use the search bar to quickly locate modules.
 
 1. Double-click the **Split Data** module, and configure its settings as follows:
+   
     * **Splitting mode**: Split Rows
     * **Fraction of rows in the first output dataset**: 0.7
     * **Randomized split**: True
     * **Random seed**: 123
-    * **Stratified split**: False
+    * **Stratified split**: False 
+  
+   ![](images/split-data-settings.png)
 
 1. In the **Asset library**, search for and place a **Train Model** module to the canvas, under the **Split Data** module. Then connect the **Results dataset1** (left) output of the **Split Data** module to the **Dataset** (right) input of the **Train Model** module.
 
 1. The model we’re training will predict the **F_IsReturned** value, so select the **Train Model** module and modify its settings to set the Label column to F_IsReturned.
+
+   ![](images/train-model-settings.png)
 
 The **F_IsReturned** the model will predict is a class (0 or 1), so we need to train the model using a classification algorithm. Specifically, there are two possible classes, so we need a binary classification algorithm.
 
@@ -210,19 +276,30 @@ The **F_IsReturned** the model will predict is a class (0 or 1), so we need to t
 1. In the Asset library, search for and place a **Score Model** module to the canvas, below the Train Model module. Then connect the output of the Train Model module to the Trained model (left) input of the **Score Model** module; and connect the Results dataset2 (right) output of the Split Data module to the Dataset (right) input of the **Score Model** module.
 
 ### Run the training pipeline
+
 Now you’re ready to run the training pipeline and train the model.
 
 1. Select Configure & Submit, and run the pipeline using the existing experiment named woodgrove-training.
+
+   ![](images/run-training-pipeline.png)
+
+   ![](images/run-training-pipeline-create.png) 
 
 1. Wait for the experiment run to finish. This may take 5 minutes or more.
 
 1. Check the status of the job by selecting **Jobs** under the **Assets**. From there, select the **woodgrove-training** experiment and then select the latest **WoodGrove Retail Training** job.
 
+   ![](images/training-job-check.png)
+
+   ![](images/training-job-check-complete.png) 
+
 1. On the new tab, right-click (Ctrl+click on a Mac) the **Score Model** module on the canvas, select **Preview data** and then select **Scored dataset** to view the results.
+
+   ![](images/score-model-data-preview.png)
 
 1. Scroll to the right, and note that next to the **F_IsReturned** column (which contains the known true values of the label) there is a new column named **Scored Labels**, which contains the predicted label values, and a **Scored Probabilities** column containing a probability value between 0 and 1. This indicates the probability of a positive prediction, so probabilities greater than 0.5 result in a predicted label of 1 (returned), while probabilities between 0 and 0.5 result in a predicted label of 0 (not returned).
 
-    ![scored](images/scored.png)
+   ![](images/score-model-data-preview-01.png) 
 
 1. Close the Scored_dataset tab.
 
@@ -232,11 +309,13 @@ Now you’re ready to run the training pipeline and train the model.
 
 1. In the **Asset library**, search for and place an **Evaluate Model** module to the canvas, under the **Score Model** module, and connect the output of the **Score Model** module to the **Scored dataset** (left) input of the **Evaluate Model** module.
 
+   ![](images/evaluate-model-add.png)
+
 1. Ensure your pipeline looks like this: 
 
     ![evaluate](images/evaluate.png)
     
-1.Click **Save**
+1. Click **Save**
 
 1. Select **Configure & Submit**, and run the pipeline using the existing experiment named woodgrove-training.
 
@@ -244,17 +323,28 @@ Now you’re ready to run the training pipeline and train the model.
 
 1. Check the status of the job by selecting Jobs under the Assets. From there, select the woodgrove-training experiment and then select the latest **WoodGrove Retail Training** job.
 
-1. On the new tab, right-click (Ctrl+click on a Mac) the **Evaluate Model** module on the canvas, select **Preview data** then select **Evaluation results** to view the performance metrics. These metrics can help data scientists assess how well the model predicts based on the validation data.
+1. On the new tab, right-click (Ctrl+click on a Mac) the **Evaluate Model** module on the canvas, select **Preview data** then select **Evaluation results** to view the performance metrics. These metrics can help data scientists assess how well the model predicts based on the validation data. 
+
+   ![](images/evaluate-model-preview-data.png)
 
 1. Scroll down to view the **confusion matrix** for the model. Observe the predicted and actual value counts for each possible class.
 
+   ![](images/evaluate-model-results-01.png)
+
+   ![](images/evaluate-model-results-02.png)
+
 1. Review the metrics to the left of the confusion matrix, which include:
+   
     * **Accuracy**: In other words, what proportion of **F_IsReturn** predictions did the model get right?
     * **Precision**: In other words, out of all the orders that the model predicted as having returns, the percentage of time the model is correct.
     * **Recall**: In other words, out of all the orders who actually have returns, how many returns cases did the model identify correctly?
     * **F1 Score**
 
 1. Use the **Threshold** slider located above the list of metrics. Try moving the threshold slider and observe the effect on the confusion matrix. If you move it all the way to the left (0), the Recall metric becomes 1, and if you move it all the way to the right (1), the Recall metric becomes 0.
+
+   ![](images/evaluate-model-results-set-0.png)
+
+   ![](images/evaluate-model-results-set-1.png)
 
 1. Look above the Threshold slider at the **ROC curve** and **AUC metric** listed with the other metrics below. To get an idea of how this area represents the performance of the model, imagine a straight diagonal line from the bottom left to the top right of the **ROC chart**. This represents the expected performance if you just guessed or flipped a coin for each order - you could expect to get around half of them right, and half of them wrong, so the area under the diagonal line represents an AUC of 0.5. If the AUC for your model is higher than this for a binary classification model, then the model performs better than a random guess.
 
