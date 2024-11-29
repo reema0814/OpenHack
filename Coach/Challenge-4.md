@@ -2,16 +2,64 @@
 
 ## RAG Pattern
 
-## Setup
-1. Generate the pdf files from the data
-1. Download the [sample Jupyter Notebook](https://openhackguides.blob.core.windows.net/ai-openhack/generate-markdown.ipynb) to generate the files needed.
-1. If students are stuck getting the notebook functioning [here](https://openhackguides.blob.core.windows.net/ai-openhack/generatedpdfs.zip) is the generated pdf files
-1. Starting in the new AI Studio https://ai.azure.com/
-1. Create a new Hub and Project
-1. Create two deployments
-    - text-embedding-ada-002
-    - gpt-4o
-1. In Project Playground click on **Chat**
+## Task - 01
+
+1. Login to the Azure AI portal at `https://ai.azure.com/`.
+   
+2. Click on **create project** , Give an unique name to the project.
+
+   ![newdatasource](images/create-project-1.png)
+
+3. Under Create a project.
+    - Project name : Unique name
+    - Hub name : Provide an unique name.
+
+   Then click on create
+   
+
+5. On the **Create a hub** pane , Provide the details as shown below:
+   
+    - Hub name : Leave as default
+    - Subscription : Leave as default.
+    - Resource Group : choose **OpenHack** from the drop down.
+    - Location : Leave default.
+    - Connect Azure AI services : Leave default.
+
+    ![newdatasource](images/create_hub00.png)
+    
+7. Select create new AI search , A new browser page will open , log in using your credentials.
+   
+     - Resource Group : Openhack
+     - Service name : Give a unique name.
+     - Location : **East US**.
+     - Pricing tier : Choose standard.
+     - Click on **Review + Create** and proceed with the creation.
+   
+    ![newdatasource](images/search-01.png)
+    
+    ![newdatasource](images/search-create.png)
+
+8. Under "My Assets," select **Models + Endpoints**, then click on **Deploy a Model** and choose **Deploy a Base Model**.
+    
+    ![newdatasource](images/model+endpoints.png)
+
+9. Choose gpt-4o and click on confirm.
+
+    ![newdatasource](images/gpt-4o.png)
+
+10. Fill in the details as shown below:
+    
+    - Deployment name : Gpt-4o
+    - Deployment type : Global Standard
+    - Click on customize
+    - Token's per Minute rate limit : 10k
+
+     ![newdatasource](images/deploy-1.png)
+     
+11. Click on **Playground** and then select **Try the Chat Playground** .
+     
+    ![newdatasource](images/playgrounds.png)
+   
 1. Click on the **Add your data** tab and then click *Add new data source**  
     
     ![newdatasource](images/newdatasource.png)
