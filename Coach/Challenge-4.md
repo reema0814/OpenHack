@@ -60,65 +60,53 @@
      
     ![newdatasource](images/playgrounds.png)
    
-1. Click on the **Add your data** tab and then click *Add new data source**  
+1. Click on the **Add your data** tab and then click **Add new data source**  
     
-    ![newdatasource](images/newdatasource.png)
+    ![newdatasource](images/add-data.png)
     
 1. On the **Data source** dropdown choose **Upload files**
 
-    ![uploadfiles](images/uploadfiles.png)
+    ![uploadfiles](images/uploadfiles-1.png)
 
 1. From the **Upload** button click the arrow and select **Upload files**
 
-    ![uploadfiules 2](images/uploadfiules2.png)
-    
-1. From the generated pdf files select 15 to upload
-
-    ![gen 15](images/gen15.png)
+    ![uploadfiules 2](images/uploadfiules2-1.png)
     
 1. Click on the **Next** button
 
-    ![next 1](images/next1.png)
+    ![next 1](images/pdf.png)
     
-1. Create a new **Azure AI Search service**
+1. After deployment return back to the **Azure AI Studio**and from the dropdown select **Connect other Azure AI Search resource**
 
-    ![searchservice](images/searchservice.png)
-    
-1. Select a Basic service and click **Review + Create**
-
-    ![basic](images/basic.png)
-    
-1. The click **Create 
-
-1. After deployment return back to the **Azure AI Studi**o and from the dropdown select **Connect other Azure AI Search resource**
-
-    ![other](images/other.png)
+    ![other](images/connect-ai.png)
     
 1. Click **Add connection**
 
-    ![addconnection](images/addconnection.png)
+    ![addconnection](images/add-connection.png)
 
 1. Create a indentifiable **Index name** and click **Next**
 
-    ![indexname](images/indexname.png)
+    ![indexname](images/search.png)
     
 1. Leave the default settings on the **Search settings** page. Click **Next**
 
-    ![settings](images/settings.png)
+    ![settings](images/search-2.png)
 
-1. Click **Create**
+1. Click **Create vector index**
+
+    ![settings](images/create-vector.png)
 
 1. Give it some time to **Crack and chunk** the data
 
-    ![crack](images/crack.png)
+    ![crack](images/chunk.png)
 
 1. Once completed change the **Search** type to **Hybrid(vector + keyword)**
 
-    ![hyrid](images/hyrid.png)
+    ![hyrid](images/hackvector.png)
     
 1. Expand the **Advanced settings** section and max out the following:
 
-    ![advanced](images/advanced.png)
+    ![advanced](images/-1.png)
     
 1. Use the following prompt
 
@@ -127,15 +115,15 @@
     ```
 1. Results...
 
-    ![rag 2](images/rag2.png)
+    ![rag 2](images/rag2-1.png)
     
     > Note: There might be issues getting it to complete correctly with the following kinds of errors provided. Seems like repeating the prompt and selecting different **Search type(s)** works most of the time. Also refreshing the page and selecting the index resolves the issue too.
 
-    ![errors](images/errors.png)
+    ![errors](images/errors-1.png)
 
     > Another possible answer result
     
-    ![answer 2](images/answer2.png)
+    ![answer 2](images/answer2-1.png)
 
 ## Bonus
 - Using the System message map the A_Category to the word Category to make the prompt easier to use.
