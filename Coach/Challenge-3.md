@@ -2,43 +2,55 @@
 
 ## Image Search
 
-Follow these steps
-
-> Note: Use the non-free version **S0** to create the image resource.
-- Need to pre-create an Azure Blob Storage and Container before proceeding. Make sure you enable Anonymous access to containers. Plus the Container should be Anonymous read access for containers and blobs.
-- Start with [images](https://openhackguides.blob.core.windows.net/ai-openhack/images.zip)
-
 ### Create a new custom model
-1. Begin by going to Vision Studio and selecting the Image analysis tab. Then select the Customize models tile.
 
+1. Create a Custom Vision model.
+
+   ![createnewresource](images/custom_vision.png)
+   
+ In the Basics tab, provide the necessary details.
+    
+ - Create Options : Both
+ - Resources Group : OpenHack
+ - Region : East US
+ - Name : Give the unique name
+ - Traning pricing tier : Standard S0
+ - Prediction pricing tier : standard S0
+    
+ Keeping all other tabs default. Click on "Review + Create" to finalize and create it.
+
+   ![createnewresource](images/custom_vision-1.png)
+   
+1. Login to the vision portal Begin by going to Vision Studio , selecting the Image analysis tab. Then select the Customize models tile.
+    
     ```
     https://portal.vision.cognitive.azure.com/
     ```
 1. Sign in using the text in the upper right-hand corner
 
-1. Click the **View all resources** text to select an AI Service or create a new one
+1. Click the **View all resources** .
 
-1. Depending if you have an existing AI Service you can follow path B. Otherwise follow path A.
+   ![createnewresource](images/view_all-1.png)
 
-    ![aiservices](images/aiservices.png)
-    
-    A. Click on the **Create a new reseource** link to get a popup. Give it some time to create the resource and follow the steps in **Part B**.
+1. Click on Create a new resource .
+
+   ![createnewresource](images/aiservices-1.png)
+
+1. Click on the **Create a new reseource** link to get a popup. Give it some time to create the resource .
         
-    ![createnewresource](images/createnewresource.png)
-    
-    B. Check the radio button next to the already and click the **Select as default resource** button 
+    ![createnewresource](images/new-resources.png)
     
 1. In the breadcrumbs click on the **Vision Studio** text
 
-    ![breadcrumbs 2](images/breadcrumbs2.png)
+    ![breadcrumbs 2](images/breadcrums-2.png)
     
 1. Click on the **Image analysis** tab and then select **Customize models with images**
 
-    ![imageanalysis](images/imageanalysis.png)
+    ![imageanalysis](images/getstarted.png)
     
 1. You will be redirected to select your resource again. Now just click on the **Resource name** you created
 
-    ![resourcename](images/resourcename.png)
+    ![resourcename](images/view_all-1-2.png)
     
 ### Add a dataset
 > Note: To complete the next series of steps you need to have a **Azure Storage Service** created that has **Anonymous access** enabled. Additionally, you need a **Container** called **Images** that is also set to **Anonymous for Containers** 
@@ -47,21 +59,19 @@ Follow these steps
 
 1. Click onn **Add new dataset**
 
-    ![newdataset](images/newdataset.png)
+    ![newdataset](images/ad-newdataset.png)
     
-1. Provide a unique **datasetname** and set the model to **Object detection** and also Select a container to use by clicking on the link. Then finally fill in the checkbox to **Allow Visual Studio to read and write to you blob storage**.
+1. Provide a unique **datasetname** and set the model to **Object detection** and also Select a container to use by clicking on the link. Then finally fill in the checkbox to **Allow Visual Studio to read and write to you blob storage**, Then click the **Create dataset** button.
 
-    ![selectedcontainer](images/selectedcontainer.png)
-    
-1. Then click the **Create dataset** button.
+    ![selectedcontainer](images/dataset-1.png)  
 
-1. Then click on the **Create AzumreML Data Labeling Project**
+1. Click on the **Create AzumreML Data Labeling Project**
 
-    ![mldatalabeling](images/mldatalabeling.png)
+    ![mldatalabeling](images/create_azure-ml.png)
 
 1. In the popup provide a unique **Project name** and the click the **Create a new workspace** link
 
-    ![newworkspace](images/newworkspace.png)
+    ![newworkspace](images/newworkspace-1.png)
     
 1. Fill out the details and then **Review + create**
 
