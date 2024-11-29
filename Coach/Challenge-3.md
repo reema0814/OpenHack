@@ -75,15 +75,13 @@
     
 1. Fill out the details and then **Review + create**
 
-    ![createml](images/createml.png)
+    ![createml](images/AML.png)
     
 1. Once you see **Your deployment is complete** then return to the previous tab
-
-    ![deploymentcomplete](images/deploymentcomplete.png)
     
 1. Click the refresh icon and select your newly created workspace from the dropdown
 
-    ![refreshml](images/refreshml.png)
+    ![refreshml](images/AML-01.png)
     
 1. Give it a moment to create
 
