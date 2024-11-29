@@ -23,8 +23,6 @@ Follow these steps
     ![aiservices](images/aiservices.png)
     
     A. Click on the **Create a new reseource** link to get a popup. Give it some time to create the resource and follow the steps in **Part B**.
-        
-     ![createnewresource](images/createnewresource.png)
     
     B. Check the radio button next to the already and click the **Select as default resource** button 
     
