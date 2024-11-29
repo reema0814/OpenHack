@@ -106,24 +106,19 @@
     
 1. Expand the **Advanced settings** section and max out the following:
 
-    ![advanced](images/-1.png)
+    ![advanced](images/advanced-1.png)
     
 1. Use the following prompt
 
     ```
     Which A_Category has the most returns?
     ```
-1. Results...
-
-    ![rag 2](images/rag2-1.png)
+1. Final Output
+   
+    ![answer 2](images/catogery.png)
+  
     
-    > Note: There might be issues getting it to complete correctly with the following kinds of errors provided. Seems like repeating the prompt and selecting different **Search type(s)** works most of the time. Also refreshing the page and selecting the index resolves the issue too.
-
-    ![errors](images/errors-1.png)
-
-    > Another possible answer result
     
-    ![answer 2](images/answer2-1.png)
 
 ## Bonus
 - Using the System message map the A_Category to the word Category to make the prompt easier to use.
