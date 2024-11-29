@@ -97,7 +97,7 @@
     
 1. Click on the **Add label category** text
 
-    ![addlabel](images/addlabel-1.png)
+    ![addlabel](images/addlabelcat.png)
     
 1. In the dialog enter the first **Category label** and keep clicking the **Add label category** text till complete
 
