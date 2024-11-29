@@ -85,23 +85,23 @@
     
 1. Give it a moment to create
 
-    ![imagemlcreation](images/imagemlcreation.png)
+    ![imagemlcreation](images/imagemlcreation-1.png)
     
 1. The button will update and now click on the new button **Go to Azure ML Labeling Project - xxxxxx"
 
-    ![gotoml](images/gotoml.png)
+    ![gotoml](images/gotoml-1.png)
     
 1. In **Azure Machine Learning Studio** click on the **Add label categorie** text
 
-    ![addcategories](images/addcategories.png)
+    ![addcategories](images/addcategories-1.png)
     
 1. Click on the **Add label category** text
 
-    ![addlabel](images/addlabel.png)
+    ![addlabel](images/addlabel-1.png)
     
 1. In the dialog enter the first **Category label** and keep clicking the **Add label category** text till complete
 
-    ![addlabelcategory](images/addlabelcategory.png)
+    ![addlabelcategory](images/addlabelcategory-1.png)
     
 1. Category Labels needed:
     * T-Shirtlong
@@ -116,11 +116,11 @@
 
 1. Once all the **Labels** are added click on **Save**
 
-    ![labels](images/labels.png)
+    ![labels](images/labels-1.png)
     
 1. Then click on the **Start** button. This will activate the **Label data** button. Click on **Label data** when it is available.
 
-    ![labeldata](images/labeldata.png)
+    ![labeldata](images/start-stop.png)
     
 1. To use the Labeling functionality this is a quick overview
     A. Use this to select the region you want to use in the image. For these images select all of the image
@@ -130,41 +130,43 @@
     E. To see how many images are left to apply a tag to you can view in the upper right hand corner
     F. When complete with each image click the **Submit** button.
     
-    ![labeloverview](images/labeloverview.png)
+   >Note : Please repeat the same steps for all 28 images.
+
+    ![labeloverview](images/boots.png)
     
 1. When you're finished, return to the Vision Studio tab in your browser.
 
 1. Click on the **+ Add COCO file**
 
-    ![addcoco](images/addcoco.png)
+    ![addcoco](images/addcoco-1.png)
     
 1. In the popup click on the dropdown and select **Import COCO file from an Azure ML Data Labeling project**
 
-    ![importcoco](images/importcoco.png)
+    ![importcoco](images/importcoco-1.png)
     
 1. The popup will update. Provide a name and select your Subscription, Workspace, and Project. Then click the **Import and add COCO file**
 
-    ![addcocofile](images/addcocofile.png)
+    ![addcocofile](images/addcocofile-1.png)
     
 1. Next in the navigation click on **Custom models**
 
-    ![custommodels](images/custommodels.png)
+    ![custommodels](images/custommodels-1.png)
     
 1. Click on **Train a new model**
 
-    ![trainnewmodel](images/trainnewmodel.png)
+    ![trainnewmodel](images/trainnewmodel-1.png)
     
 1. In the popup enter a unique name and select the **model type** as ***Object detection**. Then click **Next**
 
-    ![objectdetection](images/objectdetection.png)
+    ![objectdetection](images/objectdetection-1.png)
     
 1. Select the dataset previously created and click **Next**
 
-    ![selectdataset](images/selectdataset.png)
+    ![selectdataset](images/selectdataset-1.png)
     
 1. Select the same dataset for evaluation and click **Next**
 
-    ![evaldataset](images/evaldataset.png)
+    ![evaldataset](images/evaldataset-1.png)
     
 1. Leave the default value for training budget and click **Next**
 
@@ -175,26 +177,26 @@
 
 1. Click on the **Try it out** text
 
-    ![tryitout 2](images/tryitout2.png)
+    ![tryitout 2](images/tryitout2-1.png)
     
 1. Click the checkbox the acknowledge to confirm usage fees
 
-    ![usage](images/usage.png)
+    ![usage](images/usage-1.png)
     
 1. In the dropdown select the newly trained model
 
-    ![newmodel](images/newmodel.png)
+    ![newmodel](images/newmodel-1.png)
     
 1. Then select individual files from the provided images and drag them in too validate. In this example I dragged a tshirt in and this is the result
 
-    ![testimage](images/testimage.png)
+    ![testimage](images/testimage-1.png)
 
 
 
 
 
 
-
+    ![testimage](images/testimage-1-1.png)
 
 
 
